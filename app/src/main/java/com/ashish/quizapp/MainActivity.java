@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
         score = new Score();
         prefs = new Prefs(MainActivity.this);
-        Log.d("TAG", "onCreate: " +prefs.getHighestScore());
 
         // Retrieve the last state
         currentQuestionIndex = prefs.getState();
@@ -194,8 +193,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         prefs.saveHighestScore(score.getScore());
         prefs.setState(currentQuestionIndex);
-        Log.d("State", "onPause: saving state " + prefs.getState() );
-        Log.d("Pause", "onPause: saving score " + prefs.getHighestScore() );
         super.onPause();
     }
 
